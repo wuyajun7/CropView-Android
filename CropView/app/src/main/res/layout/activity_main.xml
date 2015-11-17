@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFB">
+
+    <Button
+        android:id="@+id/select_img"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_centerInParent="true"
+        android:background="#1C1C1C"
+        android:text="选择图片"
+        android:textColor="#FFFFFB"
+        android:textSize="@dimen/text_size_s" />
+
+</RelativeLayout>
