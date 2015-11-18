@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
                     if (cr.moveToFirst()) {
 //                        Log.i("resulteeeee", "1");
                         File file = new File(cr.getString(cr.getColumnIndex(MediaStore.Images.Media.DATA)));
-                        Bitmap tBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+//                        Bitmap tBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
 //                        Log.i("resulteeeee", "1- " + FileSizeUtil.getBitmapsize(tBitmap, FileSizeUtil.SIZETYPE_KB));
 //                        Log.i("resulteeeee", "1 " + FileSizeUtil.getFileOrFilesSize(file.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
                         Bitmap bitmap = ImageUtil.loadBitmap(file, minification);
@@ -101,7 +101,7 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 if (mCaptureFile != null && mCaptureFile.exists()) {
 //                    Log.i("resulteeeee", "3");
-                    Bitmap tBitmap = BitmapFactory.decodeFile(mCaptureFile.getAbsolutePath());
+//                    Bitmap tBitmap = BitmapFactory.decodeFile(mCaptureFile.getAbsolutePath());
 //                    Log.i("resulteeeee", "3- " + FileSizeUtil.getBitmapsize(tBitmap, FileSizeUtil.SIZETYPE_KB));
 //                    Log.i("resulteeeee", "3 " + FileSizeUtil.getFileOrFilesSize(mCaptureFile.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
                     Bitmap bitmap = ImageUtil.loadBitmap(mCaptureFile, minification);
