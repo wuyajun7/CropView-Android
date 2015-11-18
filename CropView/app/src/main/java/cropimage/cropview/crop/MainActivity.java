@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +25,7 @@ import cropimage.cropview.R;
  */
 public class MainActivity extends Activity {
 
-    private final int minification = 2;//图片压缩倍数
+    private final int minification = 3;//图片压缩倍数
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,29 +79,33 @@ public class MainActivity extends Activity {
                     Cursor cr = getContentResolver().query(uri,
                             new String[]{MediaStore.Images.Media.DATA}, null, null, null);
                     if (cr.moveToFirst()) {
+//                        Log.i("resulteeeee", "1");
                         File file = new File(cr.getString(cr.getColumnIndex(MediaStore.Images.Media.DATA)));
+                        Bitmap tBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+//                        Log.i("resulteeeee", "1- " + FileSizeUtil.getBitmapsize(tBitmap, FileSizeUtil.SIZETYPE_KB));
+//                        Log.i("resulteeeee", "1 " + FileSizeUtil.getFileOrFilesSize(file.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
                         Bitmap bitmap = ImageUtil.loadBitmap(file, minification);
-
+//                        Log.i("resulteeeee", "1- " + FileSizeUtil.getBitmapsize(bitmap, FileSizeUtil.SIZETYPE_KB));
                         setBitmapJumpActivity(bitmap);
-                        Log.i("resulteeeee", "1");
-                        Log.i("resulteeeee", "1 " + FileSizeUtil.getFileOrFilesSize(file.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
                     }
                     cr.close();
                 } else {
-                    Log.i("resulteeeee", "2");
+//                    Log.i("resulteeeee", "2");
                     Bundle bundle = data.getExtras();
                     Bitmap bitmap = (Bitmap) bundle.get("data");
-                    Log.i("resulteeeee", "2 " + FileSizeUtil.getBitmapsize(bitmap, FileSizeUtil.SIZETYPE_KB));
+//                    Log.i("resulteeeee", "2 " + FileSizeUtil.getBitmapsize(bitmap, FileSizeUtil.SIZETYPE_KB));
                     setBitmapJumpActivity(ImageUtil.changeBitmap(bitmap,
                             bitmap.getWidth() / minification, bitmap.getHeight() / minification));
                 }
 
             } catch (Exception e) {
                 if (mCaptureFile != null && mCaptureFile.exists()) {
-                    Log.i("resulteeeee", "3");
-                    Log.i("resulteeeee", "1 " + FileSizeUtil.getFileOrFilesSize(mCaptureFile.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
-
+//                    Log.i("resulteeeee", "3");
+                    Bitmap tBitmap = BitmapFactory.decodeFile(mCaptureFile.getAbsolutePath());
+//                    Log.i("resulteeeee", "3- " + FileSizeUtil.getBitmapsize(tBitmap, FileSizeUtil.SIZETYPE_KB));
+//                    Log.i("resulteeeee", "3 " + FileSizeUtil.getFileOrFilesSize(mCaptureFile.getAbsolutePath(), FileSizeUtil.SIZETYPE_KB));
                     Bitmap bitmap = ImageUtil.loadBitmap(mCaptureFile, minification);
+//                    Log.i("resulteeeee", "3 " + FileSizeUtil.getBitmapsize(bitmap, FileSizeUtil.SIZETYPE_KB));
                     setBitmapJumpActivity(bitmap);
                 }
             }

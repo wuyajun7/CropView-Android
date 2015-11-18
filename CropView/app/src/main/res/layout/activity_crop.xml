@@ -1,194 +1,290 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFB">
-
-    <HorizontalScrollView
-        android:id="@+id/tab_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#FFFFFB">
-
-        <LinearLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/buttonFitImage"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="默认"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/button1_1"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="1:1"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/button3_4"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="3:4"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/button4_3"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="4:3"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/button9_16"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="9:16"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/button16_9"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="16:9"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/buttonCustom"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="7:5"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/buttonFree"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="自定义"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-            <Button
-                android:id="@+id/buttonCircle"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="8dp"
-                android:background="#1C1C1C"
-                android:padding="8dp"
-                android:text="圆形"
-                android:textColor="#FFFFFB"
-                android:textSize="@dimen/text_size_s" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <cropimage.cropview.crop.CropImageView
-        android:id="@+id/cropImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tab_bar"
-        android:paddingBottom="64dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="32dp"
-        custom:backgroundColor="#FFFFFB"
-        custom:cropMode="ratio_fit_image"
-        custom:frameColor="#86C166"
-        custom:frameStrokeWeight="1dp"
-        custom:guideColor="#AA86C166"
-        custom:guideShowMode="show_on_touch"
-        custom:guideStrokeWeight="1dp"
-        custom:handleColor="#86C166"
-        custom:handleShowMode="show_always"
-        custom:handleSize="8dp"
-        custom:minFrameSize="50dp"
-        custom:overlayColor="#AA1C1C1C"
-        custom:touchPadding="8dp" />
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cropImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="56dp"
+        android:background="#f9f8f6"
+        android:gravity="center">
 
-        <Button
-            android:id="@+id/buttonRotateImage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="#1C1C1C"
-            android:text="旋转图片"
-            android:textColor="#FFFFFB"
-            android:textSize="@dimen/text_size_s" />
-
-        <Button
-            android:id="@+id/buttonDone"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="#1C1C1C"
-            android:text="剪切图片"
-            android:textColor="#FFFFFB"
-            android:textSize="@dimen/text_size_s" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片编辑器"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignBottom="@+id/cropImageView"
-        android:background="#86C166" />
+        android:layout_height="1px"
+        android:background="#c6c6c6" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <cropimage.cropview.crop.CropImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="10dp"
+            custom:backgroundColor="#FFFFFB"
+            custom:cropMode="ratio_fit_image"
+            custom:frameColor="#FF8500"
+            custom:frameStrokeWeight="1dp"
+            custom:guideColor="#AAFF8500"
+            custom:guideShowMode="show_on_touch"
+            custom:guideStrokeWeight="1dp"
+            custom:handleColor="#FF8500"
+            custom:handleShowMode="show_always"
+            custom:handleSize="8dp"
+            custom:minFrameSize="50dp"
+            custom:overlayColor="#AA1C1C1C"
+            custom:touchPadding="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/buttonRotateImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_option"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_edit_rotate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="旋转"
+                android:textColor="#8E8E8E"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonSelectScale"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_option"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_edit_landscape" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="比例"
+                android:textColor="#8E8E8E"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/btn_cancel"
+                android:text="取消"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/buttonDone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/btn_ok"
+                android:text="确定"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1.5"
+                android:background="#E0E0E0"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonFitImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="默认"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/button1_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="1:1"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/button3_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="3:4"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/button4_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="4:3"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/button9_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="9:16"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/button16_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="16:9"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/buttonCustom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="7:5"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/buttonFree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="自定义"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <Button
+                        android:id="@+id/buttonCircle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_scale"
+                        android:padding="8dp"
+                        android:text="圆形"
+                        android:textColor="#FFFFFB"
+                        android:textSize="@dimen/text_size_s"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/close_tabbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8.5"
+                android:background="@drawable/btn_close"
+                android:gravity="center"
+                android:text="X"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

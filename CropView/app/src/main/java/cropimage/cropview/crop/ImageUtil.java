@@ -3,8 +3,13 @@ package cropimage.cropview.crop;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
+import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by wuyajun on 15/11/17.
@@ -24,7 +29,7 @@ public class ImageUtil {
         decodeOptions.inPreferredConfig = Bitmap.Config.RGB_565;  //不要透明度，降低内存消耗
         decodeOptions.inJustDecodeBounds = false;
         if (inSampleSize <= 0) {
-            decodeOptions.inSampleSize = 2;
+            decodeOptions.inSampleSize = 3;
         } else {
             decodeOptions.inSampleSize = inSampleSize;
         }
@@ -56,6 +61,44 @@ public class ImageUtil {
         if (!bitmap.isRecycled()) {
             bitmap.recycle();   //回收图片所占的内存
             System.gc();  //提醒系统及时回收
+        }
+    }
+
+    /**
+     * 保存图片
+     *
+     * @param bitmap  图片
+     * @param imgName 图片名称
+     * @param imgMass 图片质量
+     */
+    public static void saveBitmap(Bitmap bitmap, String imgName, int imgMass) {
+        String parentPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/niuniu/";
+        File parentFile = new File(parentPath);
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        File f = new File(parentPath + imgName + ".jpg");
+        try {
+            f.createNewFile();
+        } catch (IOException e) {
+            Log.i("saveImg", "在保存图片时出错 " + e.toString());
+        }
+        FileOutputStream fOut = null;
+        try {
+            fOut = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bitmap.compress(Bitmap.CompressFormat.JPEG, imgMass, fOut);
+        try {
+            fOut.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -162,7 +162,15 @@ public class FileSizeUtil {
     public static Double getBitmapsize(Bitmap bitmap, int sizeType) {
         long fileS = 0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-            fileS = bitmap.getByteCount();
+//            fileS = bitmap.getByteCount();
+            Bitmap.Config config = bitmap.getConfig();
+            if (config == Bitmap.Config.RGB_565 || config == Bitmap.Config.ARGB_4444) {
+                fileS = bitmap.getWidth() * bitmap.getHeight() * 2;
+            } else if (config == Bitmap.Config.ALPHA_8) {
+                fileS = bitmap.getWidth() * bitmap.getHeight();
+            } else if (config == Bitmap.Config.ARGB_8888) {
+                fileS = bitmap.getWidth() * bitmap.getHeight() * 4;
+            }
         } else {
             fileS = bitmap.getRowBytes() * bitmap.getHeight();// Pre HC-MR1
         }
