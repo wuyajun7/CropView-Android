@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -67,6 +68,24 @@ public class AsyncTaskSaveImage extends AsyncTask<Integer, Integer, String> {
             result = SAVE_FAILURE;
         }
         bitmap.compress(Bitmap.CompressFormat.JPEG, imgMass, fOut);
+
+        //计算压缩多少合适 -----------------
+//        int quality = 100;
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//        while (baos.toByteArray().length / 1024f > 100) {
+//            quality -= 20;
+//            baos.reset();
+//            if (quality <= 0) {
+//                break;
+//            }
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, baos);
+//        }
+//        //计算出后使用结果比压缩
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fOut);
+
+        //--------------------------------
+
         try {
             fOut.flush();
             result = SAVE_SUCCESS;
